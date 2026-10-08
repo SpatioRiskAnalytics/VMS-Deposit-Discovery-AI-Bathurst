@@ -31,7 +31,7 @@ import geopandas as gpd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import (
-    roc_auc_score, average_precision_score, balanced_accuracy_score,
+    roc_auc_score, average_precision_score, balanced_accuracy_score, auc as sklearn_auc,
 )
 from xgboost import XGBClassifier
 
@@ -103,7 +103,7 @@ def _smote(X, y, seed):
 
 def _evaluate(clf, X, y, fold_ids, seed):
     cv = SpatialBlockCV(fold_ids, N_SPATIAL_FOLDS)
-    aucs, aps, baccs = [], [], []
+    aucs, aps, baccs, sr_aucs = [], [], [], []
     for fold, (tr, te) in enumerate(cv.split(X, y)):
         Xtr, ytr = _smote(X[tr], y[tr], seed + fold)
         clf.fit(Xtr, ytr)
@@ -112,10 +112,22 @@ def _evaluate(clf, X, y, fold_ids, seed):
         aucs.append(roc_auc_score(y[te], yp))
         aps.append(average_precision_score(y[te], yp))
         baccs.append(balanced_accuracy_score(y[te], ypred))
+
+        order = np.argsort(yp)[::-1]
+        sorted_y = y[te][order]
+        n_pos = sorted_y.sum()
+        if n_pos > 0:
+            cum_dep = np.cumsum(sorted_y) / n_pos
+            cum_samples = np.arange(1, len(sorted_y) + 1) / len(sorted_y)
+            sr_aucs.append(sklearn_auc(cum_samples, cum_dep))
+        else:
+            sr_aucs.append(0.5)
+
     return {
         "roc_auc_mean": np.mean(aucs),  "roc_auc_std": np.std(aucs),
         "avg_prec_mean": np.mean(aps),  "avg_prec_std": np.std(aps),
         "balanced_acc_mean": np.mean(baccs), "balanced_acc_std": np.std(baccs),
+        "sr_auc_mean": np.mean(sr_aucs), "sr_auc_std": np.std(sr_aucs),
     }
 
 # ── Data loading ──────────────────────────────────────────────────────────────
