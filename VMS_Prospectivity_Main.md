@@ -20,17 +20,11 @@ Dele Falebita performed the data analysis, interpreted the results, and prepared
 
 **Statements and Declarations**
 
-<<<<<<< HEAD
 **Conflict of Interest:** The authors declare that they have no known financial or personal relationships that could have influenced the work reported in this paper.
-=======
-**Conflict of Interest:** The authors declare that they have no known financial or personal relationships that
-
-could have influenced the work reported in this paper.
 
 **Camp-Scale Machine Learning Prospectivity Mapping of VMS Deposits in the Bathurst Mining Camp, New Brunswick: Integrating Geophysical Derivatives, Multi-Element Till Geochemistry, and Geologically Constrained Class Labels**
->>>>>>> 409badf4b7e147508c94e920d166099ff9266e05
 
-# **Abstract**
+**Abstract**
 
 We present a machine-learning framework for camp-scale volcanogenic massive sulphide (VMS) prospectivity mapping in the Bathurst Mining Camp (BMC), New Brunswick, Canada. Aeromagnetic, gravity, and radiometric datasets were integrated with a compiled 17-element till geochemistry dataset comprising 2,753 sample locations. Geophysical derivatives were generated to enhance structural features, while geochemical surfaces were interpolated using inverse distance weighting and transformed using centered log-ratio (CLR) methods. Principal Component Analysis (PCA), Factor Analysis (FA), and a geologically weighted Multi-Element Anomaly Score (MEAS) were used to extract geochemically meaningful predictors associated with VMS mineralization. Random Forest (RF) and Extreme Gradient Boosting (XGBoost) classifiers were trained using 295 spatial labels consisting of 45 known VMS deposits and 250 geologically constrained negative labels derived from barren drill intercepts and feature-space dissimilar samples. Model evaluation employed Synthetic Minority Over-sampling Technique (SMOTE) class balancing and 5-fold spatial cross-validation. RF outperformed XGBoost across the principal discrimination and targeting metrics, achieving Receiver Operating Characteristics-Area Under Curve (ROC<sub>AUC</sub>) values of 0.9318 ± 0.0368 and 0.9098 ± 0.0369, and Success Rate AUC values of 0.9680 and 0.9494 respectively. The RF model captured 91.1% of known VMS deposits within the highest-ranked 10% of the study area. Prospectivity maps produced by both classifiers delineated spatially coherent NNE-SSW-trending corridors that coincide with known VMS clusters and favourable Tetagouche Group volcanic horizons, while also identifying previously unrecognized target areas. The radiometric Thorium/Potassium (Th/K) alteration ratio emerged as the most influential predictor in both models, followed by molybdenum-, zinc-, and lead-related geochemical variables. The results demonstrate the value of integrating hydrothermal alteration signatures, structural geophysics, and multi-element till geochemistry for camp-scale VMS exploration targeting in covered terranes.
 
@@ -40,11 +34,7 @@ We present a machine-learning framework for camp-scale volcanogenic massive sulp
 2. Geologically Constrained Class Labels were used to improve the representation of non-mineralized conditions in machine learning training data.
 3. Th/K emerged as the most influential predictor, highlighting the importance of hydrothermal alteration signatures for VMS prospectivity mapping.
 
-<<<<<<< HEAD
 **Keywords:** mineral prospectivity mapping; volcanogenic massive sulphide; Bathurst Mining Camp; till geochemistry; class negative label; geophysical derivatives
-=======
-# **Keywords:** mineral prospectivity mapping; volcanogenic massive sulphide; Bathurst Mining Camp; till geochemistry; class negative label; geophysical derivatives
->>>>>>> 409badf4b7e147508c94e920d166099ff9266e05
 
 # **1\. Introduction**
 
@@ -62,19 +52,11 @@ A further challenge in data-driven MPM is the negative-label for mineral absence
 
 Spatial autocorrelation presents an additional obstacle to the development of reliable ML-based prospectivity models. Nearby observations commonly share similar geological, geophysical, and geochemical characteristics, resulting in statistical dependence within spatial datasets. When observations are partitioned randomly into training and validation subsets, model performance may be artificially inflated because validation samples are not truly independent of the training data (Brenning, 2012; Roberts et al., 2017). Obtaining realistic estimates of model performance therefore requires validation approaches that account for spatial dependence. Beyond predictive accuracy, exploration programs also require models that can efficiently prioritize targets for follow-up investigation. Consequently, measures of targeting efficiency are essential complements to conventional classification metrics and provide a more practical assessment of exploration value (Bonham-Carter, 1994; Carranza, 2008).
 
-<<<<<<< HEAD
 Against this background, we present a camp-scale machine-learning prospectivity analysis of the Bathurst Mining Camp, integrating the regional airborne geophysical compilation of Ugalde et al. (2018) with a unified 17-element New Brunswick till-geochemistry database. Specifically, this study addresses four key areas: (1) integration of regional geophysical and till geochemical datasets to support camp-scale prediction of concealed VMS mineralization; (2) identification of the geophysical and geochemical variables that contribute most strongly to prospectivity predictions; (3) application of geologically informed negative-label constraints to construct a more representative training dataset for machine learning-based prospectivity modelling; and (4) development of a data-driven framework for ranking and prioritizing exploration targets for follow-up investigation. By building on decades of geological, geochemical, and geophysical research in the Bathurst Mining Camp, we seek to enhance the targeting of concealed mineralization and advance mineral prospectivity mapping methodologies for mature, data-rich VMS districts elsewhere. This open, optimization-aware approach aligns with the Exploration Information System (EIS) framework proposed by Daviran et al. (2026), which advocates for systematic, reproducible mineral prospectivity architectures.
 
-# **2\. Regional Geological Setting**
+**2\. Regional Geological Setting**
 
-## **2.1 Tectonic and Stratigraphic Framework**
-=======
-Against this background, we present a camp-scale machine-learning prospectivity analysis of the Bathurst Mining Camp, integrating the regional airborne geophysical compilation of Ugalde et al. (2018) with a unified 17-element New Brunswick till-geochemistry database. Specifically, this study addresses four key areas: (1) integration of regional geophysical and till geochemical datasets to support camp-scale prediction of concealed VMS mineralization; (2) identification of the geophysical and geochemical variables that contribute most strongly to prospectivity predictions; (3) application of geologically informed negative-label constraints to construct a more representative training dataset for machine learning-based prospectivity modelling; and (4) development of a data-driven framework for ranking and prioritizing exploration targets for follow-up investigation. By building on decades of geological, geochemical, and geophysical research in the Bathurst Mining Camp, we seek to enhance the targeting of concealed mineralization and advance mineral prospectivity mapping methodologies for mature, data-rich VMS districts elsewhere.
-
-### **2\. Regional Geological Setting**
-
-#### **2.1 Tectonic and Stratigraphic Framework**
->>>>>>> 409badf4b7e147508c94e920d166099ff9266e05
+**2.1 Tectonic and Stratigraphic Framework**
 
 The Bathurst Mining Camp (BMC) occupies the Gander Zone of the northern Appalachian Orogen in New Brunswick, Canada (Fig. 1; Rogers & van Staal, 2003; van Staal et al., 2003). Its geological architecture reflects the evolution of the Cambro-Ordovician Tetagouche-Four Falls back-arc basin, which formed during the rifting of the Popelogan arc from the Gondwanan passive margin. Subsequent Taconic, Salinic, and Acadian orogenic events progressively closed the basin and tectonically imbricated the volcanic and sedimentary successions into a series of thrust-bounded structural blocks (Goodfellow & McCutcheon, 2003; van Staal et al., 2003).
 
@@ -82,22 +64,12 @@ The geological map (Fig. 1) highlights the dominance of Middle Ordovician volcan
 
 The para-autochthonous Miramichi Group forms the basement succession and consists mainly of quartzarenites and carbonaceous argillites deposited on the Gondwanan passive margin prior to rifting. Other mapped units include the Fournier Group, Sheephouse Brook Group, Upsalquitch Gabbro, granitic intrusions, and younger Silurian-Carboniferous volcanic and sedimentary rocks. The distribution of lithological units and the abundance of thrust faults shown on Figure 1 emphasize the strong structural modification of the original basin architecture and the importance of tectonic juxtaposition in preserving and exposing mineralized stratigraphy.
 
-<<<<<<< HEAD
-## **2.2 VMS Deposit Style and Hydrothermal Alteration**
-=======
-#### **2.2 VMS Deposit Style and Hydrothermal Alteration**
->>>>>>> 409badf4b7e147508c94e920d166099ff9266e05
-
+**2.2 VMS Deposit Style and Hydrothermal Alteration**
 Deposits within the BMC belong predominantly to the bimodal-siliciclastic volcanogenic massive sulphide (VMS) subtype (Galley et al., 2007; Franklin et al., 2005). Mineralization is concentrated within the Tetagouche and California Lake groups and is commonly localized near felsic volcanic-sedimentary contacts. Typical deposits comprise a chlorite-silica-pyrite stockwork developed within a sub-seafloor hydrothermal feeder system, overlain by a stratiform massive sulphide lens dominated by pyrite, sphalerite, and galena, which hosts the bulk of the Zn-Pb-Ag-Au resource. Distal hydrothermal plume activity is commonly represented by jasperous or magnetite-rich iron formations (Goodfellow, 2007).
 
 Hydrothermal alteration forms extensive halos surrounding mineralization, progressing outward from a proximal quartz-chlorite-pyrite assemblage to sericite-carbonate-pyrite alteration. These alteration zones are important exploration vectors and are commonly associated with potassium enrichment and thorium depletion detectable in airborne radiometric datasets (Shives et al., 1997; Goodfellow, 2007).
 
-<<<<<<< HEAD
-## **2.3 Structural Controls and Exploration Implications**
-=======
-#### **2.3 Structural Controls and Exploration Implications**
->>>>>>> 409badf4b7e147508c94e920d166099ff9266e05
-
+**2.3 Structural Controls and Exploration Implications**
 The study area is characterized by a dense network of thrust faults and subsidiary brittle structures that dissect the Ordovician volcanic belts (Fig. 1). Multiple phases of Appalachian deformation under greenschist-facies conditions have significantly modified the original geometry of the VMS systems (van Staal et al., 2003; Rogers and van Staal, 2003). Early thrusting and nappe emplacement structurally repeated favourable host sequences, while later folding and faulting further fragmented and redistributed mineralized horizons. The concentration of known mineral occurrences along major structural corridors indicates that both ore preservation and present-day exposure are strongly controlled by these tectonic processes.
 
 The polyphase deformation history eliminates simple surface expression of mineralization, elevates cover thickness through repeated structural stacking, and makes geophysical imaging of shear zones and density contrasts an indispensable complement to geochemical sampling (Parkhill & Doiron, 2003; Thomas et al., 2000). These characteristics make integrated structural, geophysical, and geochemical approaches essential for targeting concealed VMS deposits within the Bathurst Mining Camp.
