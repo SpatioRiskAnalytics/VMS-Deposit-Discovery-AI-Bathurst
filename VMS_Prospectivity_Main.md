@@ -54,7 +54,7 @@ Spatial autocorrelation presents an additional obstacle to the development of re
 
 Against this background, we present a camp-scale machine-learning prospectivity analysis of the Bathurst Mining Camp, integrating the regional airborne geophysical compilation of Ugalde et al. (2018) with a unified 17-element New Brunswick till-geochemistry database. Specifically, this study addresses four key areas: (1) integration of regional geophysical and till geochemical datasets to support camp-scale prediction of concealed VMS mineralization; (2) identification of the geophysical and geochemical variables that contribute most strongly to prospectivity predictions; (3) application of geologically informed negative-label constraints to construct a more representative training dataset for machine learning-based prospectivity modelling; and (4) development of a data-driven framework for ranking and prioritizing exploration targets for follow-up investigation. By building on decades of geological, geochemical, and geophysical research in the Bathurst Mining Camp, we seek to enhance the targeting of concealed mineralization and advance mineral prospectivity mapping methodologies for mature, data-rich VMS districts elsewhere. This open, optimization-aware approach aligns with the Exploration Information System (EIS) framework proposed by Daviran et al. (2026), which advocates for systematic, reproducible mineral prospectivity architectures.
 
-**2\. Regional Geological Setting**
+**2.0 Regional Geological Setting**
 
 **2.1 Tectonic and Stratigraphic Framework**
 
@@ -74,13 +74,9 @@ The study area is characterized by a dense network of thrust faults and subsidia
 
 The polyphase deformation history eliminates simple surface expression of mineralization, elevates cover thickness through repeated structural stacking, and makes geophysical imaging of shear zones and density contrasts an indispensable complement to geochemical sampling (Parkhill & Doiron, 2003; Thomas et al., 2000). These characteristics make integrated structural, geophysical, and geochemical approaches essential for targeting concealed VMS deposits within the Bathurst Mining Camp.
 
-# **3\. Methodology**
+**3. Methodology**
 
-<<<<<<< HEAD
 Geophysical, geological, drill-hole, and till geochemistry datasets were obtained from the New Brunswick Department of Natural Resources (NBDNR) through the department's ArcGIS REST services and integrated into QGIS 4.2.0 (Belém do Pará; QGIS Development Team, 2026) for visualization, quality control, and spatial data management.
-=======
-Geophysical, geological, drill-hole, and till geochemistry datasets were obtained from the New Brunswick Department of Natural Resources (NBDNR) through the department's ArcGIS REST services and integrated into QGIS (v4.2.0) for visualization, quality control, and spatial data management.
->>>>>>> 409badf4b7e147508c94e920d166099ff9266e05
 
 The prospectivity mapping framework was structured as a multi-stage ML pipeline progressing from raw data compilation and grid-derivative computation to spatial machine learning and area-normalized validation (Fig. 2). The workflow was implemented using custom Python scripts and comprise of five key components: (1) data compilation and native-grid preprocessing; (2) compositional geochemical analysis; (3) feature extraction and engineering; (4) spatial block cross-validation and model training; and (5) full-extent mapping and interpretability.
 
