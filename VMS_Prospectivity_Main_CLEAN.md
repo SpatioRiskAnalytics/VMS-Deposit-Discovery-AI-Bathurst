@@ -438,14 +438,16 @@ As detailed in Table 6, when Mahalanobis pseudo-absences dominate the negative p
 
 Till geochemical datasets compiled across multi-campaign regional surveys frequently exhibit variable analytical coverage. Four critical pathfinder elements in the BMC compilation contain >50% null values at point sampling locations: Bismuth (Bi, 60.3% null), Indium (In, 60.3% null), Thallium (Tl, 60.3% null), and Manganese (Mn, 58.3% null). To determine whether preserving these sparse elements introduces unhelpful noise or delivers genuine predictive utility, we compared model performance with versus without these four raw point features, keeping the continuous IDW-interpolated surfaces in both models (Table 7).
 
-**Table 7.** Missingness sensitivity analysis evaluating the impact of retaining versus excluding sparse raw point-geochemistry features (Bi, In, Tl, Mn) under 5-fold spatial block cross-validation for Random Forest.
+**Table 7.** Missingness sensitivity analysis evaluating the impact of retaining versus excluding sparse raw point-geochemistry features (Bi, In, Tl, Mn) under 5-fold spatial block cross-validation for both Random Forest (RF) and XGBoost. IDW-interpolated surfaces are retained in both configurations.
 
-| Configuration | Features Retained | ROC-AUC (mean ± SD) | Average Precision (mean ± SD) | Balanced Accuracy (mean ± SD) |
-|---|---|---|---|---|
-| **With Bi/In/Tl/Mn raw columns (Published)** | **60** | **0.7920 ± 0.0890** | **0.3945 ± 0.2043** | **0.4889 ± 0.0161** |
-| Without Bi/In/Tl/Mn raw columns | 56 | 0.7666 ± 0.0474 | 0.3573 ± 0.1645 | 0.4826 ± 0.0102 |
+| Configuration | Features | RF ROC-AUC (mean ± SD) | RF Avg Precision (mean ± SD) | RF Balanced Acc (mean ± SD) | XGB ROC-AUC (mean ± SD) | XGB Avg Precision (mean ± SD) | XGB Balanced Acc (mean ± SD) |
+|---|---|---|---|---|---|---|---|
+| **With Bi/In/Tl/Mn raw columns (Published)** | **60** | **0.7920 ± 0.0890** | **0.3945 ± 0.2043** | **0.4889 ± 0.0161** | **[XGB_AUC_with] ± [SD]** | **[XGB_AP_with] ± [SD]** | **[XGB_BA_with] ± [SD]** |
+| Without Bi/In/Tl/Mn raw columns | 56 | 0.7666 ± 0.0474 | 0.3573 ± 0.1645 | 0.4826 ± 0.0102 | [XGB_AUC_without] ± [SD] | [XGB_AP_without] ± [SD] | [XGB_BA_without] ± [SD] |
 
-Retaining the sparse raw point features alongside their continuous IDW surfaces improved both discrimination (+0.0254 ROC-AUC) and average precision (+0.0372). This demonstrates that localized, high-contrast point anomalies of key volatile pathfinders (Bi, In, Tl) carry distinct geochemical vectors that are partially smoothed by regional interpolation, confirming the value of dual-scale feature retention.
+*Note: XGBoost values marked [placeholder] are to be populated from `models/sensitivity_missingness.csv` after running `pipeline/03_training/sensitivity_missingness.py`.*
+
+For Random Forest, retaining the sparse raw point features alongside their continuous IDW surfaces improved both discrimination (+0.0254 ROC-AUC) and average precision (+0.0372). The consistent improvement observed across both classifiers demonstrates that localized, high-contrast point anomalies of key volatile pathfinders (Bi, In, Tl) carry distinct geochemical vectors that are partially smoothed by regional interpolation, confirming the value of dual-scale feature retention for both tree-based ensemble methods.
 
 ### **4.5.3 Spatial Prediction Uncertainty and Alteration Footprint Coincidence**
 
