@@ -33,16 +33,14 @@ Sensitivity of Random Forest (RF) and Extreme Gradient Boosting (XGBoost) perfor
 
 ### Supplementary Table S2. Missingness Sensitivity Analysis for Sparse Pathfinder Elements
 
-Evaluation of model sensitivity to the inclusion versus exclusion of the four till geochemistry elements exhibiting >50% sparse/missing data at point sampling locations: Bismuth (Bi, 60.3% null), Indium (In, 60.3% null), Thallium (Tl, 60.3% null), and Manganese (Mn, 58.3% null). In both configurations, spatially continuous IDW-interpolated raster surfaces (derived from 2,753 unique regional till samples) were retained. All metrics represent 5-fold spatial block cross-validation means ± standard deviations for **both Random Forest (RF) and XGBoost (XGB)**. Results produced by `pipeline/03_training/sensitivity_missingness.py`; full numerical output in `models/sensitivity_missingness.csv`.
+Evaluation of model sensitivity to the inclusion versus exclusion of the four till geochemistry elements exhibiting >50% sparse/missing data at point sampling locations: Bismuth (Bi, 60.3% null), Indium (In, 60.3% null), Thallium (Tl, 60.3% null), and Manganese (Mn, 58.3% null). In both configurations, spatially continuous IDW-interpolated raster surfaces (derived from 2,753 unique regional till samples) were retained. All metrics represent 5-fold spatial block cross-validation means ± standard deviations for **both Random Forest (RF) and XGBoost (XGB)**. Full numerical output in `models/sensitivity_missingness.csv`.
 
 | Configuration | Features | RF ROC-AUC (mean ± SD) | RF Avg Precision (mean ± SD) | RF Balanced Acc (mean ± SD) | XGB ROC-AUC (mean ± SD) | XGB Avg Precision (mean ± SD) | XGB Balanced Acc (mean ± SD) |
 |---|---|---|---|---|---|---|---|
-| **With Bi/In/Tl/Mn raw columns (Published)** | **60** | **0.7920 ± 0.0890** | **0.3945 ± 0.2043** | **0.4889 ± 0.0161** | **[XGB_AUC_with] ± [SD]** | **[XGB_AP_with] ± [SD]** | **[XGB_BA_with] ± [SD]** |
-| Without Bi/In/Tl/Mn raw columns | 56 | 0.7666 ± 0.0474 | 0.3573 ± 0.1645 | 0.4826 ± 0.0102 | [XGB_AUC_without] ± [SD] | [XGB_AP_without] ± [SD] | [XGB_BA_without] ± [SD] |
+| **With Bi/In/Tl/Mn raw columns (Published)** | **60** | **0.7525 ± 0.0763** | **0.3826 ± 0.1712** | **0.4920 ± 0.0070** | **0.7473 ± 0.0732** | **0.3483 ± 0.1240** | **0.5378 ± 0.0677** |
+| Without Bi/In/Tl/Mn raw columns | 56 | 0.7787 ± 0.0638 | 0.3890 ± 0.2158 | 0.4807 ± 0.0112 | 0.7734 ± 0.0527 | 0.4011 ± 0.1629 | 0.6102 ± 0.0855 |
 
-*Note: XGBoost values marked [placeholder] are to be populated from `models/sensitivity_missingness.csv` after running `pipeline/03_training/sensitivity_missingness.py`.*
-
-*Interpretation:* For Random Forest, retaining the sparse raw point features alongside their continuous IDW counterparts improves both discriminatory power (+0.0254 ROC-AUC) and target recovery (+0.0372 Average Precision). The same directional effect is expected for XGBoost, confirming across both classifiers that localized, high-contrast point anomalies of critical VMS pathfinders (Bi, In, Tl) carry distinct predictive signal not fully captured by spatially smoothed regional interpolation alone.
+*Interpretation:* Both configurations produced comparable cross-validation performance. ROC-AUC differences of 0.026 for both RF and XGBoost are well within the fold-to-fold standard deviation (±0.05–0.08), indicating that model performance is not critically sensitive to the inclusion of these sparse columns. Although the without-columns configuration shows a slight directional improvement, this difference is not statistically meaningful under 5-fold spatial block cross-validation (k=5 precludes formal significance testing). Given that all four elements fall below the established 75% null threshold, that their IDW counterparts provide spatially continuous coverage at all labelled locations, and that the performance difference is negligible, all 17 raw geochemical elements were retained in the published 60-feature predictor matrix to preserve the full dual-scale geochemical representation.
 
 ---
 
