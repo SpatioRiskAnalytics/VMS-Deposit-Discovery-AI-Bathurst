@@ -597,8 +597,6 @@ Mami Khalifani, F., Lentz, D.R. & Walker, J.A. (2025) Machine learning-based min
 
 McClenaghan, M. B., Paulen, R. C., Smith, I. R., Rice, J. M., Plouffe, A., McMartin, I., Campbell, J. E., Lehtonen, M., Parsasadr, M., & Beckett-Brown, C. E. (2023). Review of till geochemistry and indicator mineral methods for mineral exploration in glaciated terrain. _Geochemistry: Exploration, Environment, Analysis_, _23_(4), geochem2023-013. 
 
-McCutcheon, S. R., Luff, W. M., & Lentz, D. R. (2003). Context of zinc-lead massive sulfide deposits in the Bathurst Mining Camp, New Brunswick. In W. D. Goodfellow, S. R. McCutcheon, & J. M. Peter (Eds.), _Massive sulphide deposits of the Bathurst Mining Camp, New Brunswick, and northern Maine_ (Economic Geology Monograph No. 11, pp. 1–18). Society of Economic Geologists. 
-
 McCutcheon, S. R., & Walker, J. A. (2020). Great mining camps of Canada 8. The Bathurst Mining Camp, New Brunswick, Part 2: Mining history and contributions to society. _Geoscience Canada, 47_(3), 143–166. .
 
 Miller, H. G., & Singh, V. (1994). Potential field tilt—A new concept for location of potential field sources. _Journal of Applied Geophysics, 32_(2–3), 213–217. [https://doi.org/10.1016/0926-9851(94)90022-1](https://doi.org/10.1016/0926-9851%2894%2990022-1)
@@ -623,7 +621,7 @@ Parsa, M., Cumani, R. (2025). Class Label Representativeness in Machine Learning
 
 Pham, L. T., Eldosouky, A. M., Oksum, E., & Saada, S. A. (2022). A new high resolution filter for source edge detection of potential field data. _Geocarto International_, 37(11), 3051–3068. 
 
-QGIS Development Team. (2026). _QGIS Geographic Information System (Version 4.2.0 "Belém do Pará")_. Open Source Geospatial Foundation Project. 
+QGIS Development Team. (2026). _QGIS Geographic Information System (Version 4.2.0 "Belém do Pará")_. Open Source Geospatial Foundation Project. <https://qgis.org>
 
 Reimann, C., Filzmoser, P., Garrett, R. G., & Dutter, R. (2008). _Statistical data analysis explained: Applied environmental statistics with R_. Wiley. 
 

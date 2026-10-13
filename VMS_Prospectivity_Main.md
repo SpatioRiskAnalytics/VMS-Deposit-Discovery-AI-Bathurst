@@ -781,11 +781,6 @@ Mami Khalifani, F., Lentz, D.R. & Walker, J.A. (2025) Machine learning-based min
 
 McClenaghan, M. B., Paulen, R. C., Smith, I. R., Rice, J. M., Plouffe, A., McMartin, I., Campbell, J. E., Lehtonen, M., Parsasadr, M., & Beckett-Brown, C. E. (2023). Review of till geochemistry and indicator mineral methods for mineral exploration in glaciated terrain. _Geochemistry: Exploration, Environment, Analysis_, _23_(4), geochem2023-013. <https://doi.org/10.1144/geochem2023-013>
 
-<<<<<<< HEAD
-McCutcheon, S. R., Luff, W. M., & Lentz, D. R. (2003). Context of zinc-lead massive sulfide deposits in the Bathurst Mining Camp, New Brunswick. In W. D. Goodfellow, S. R. McCutcheon, & J. M. Peter (Eds.), _Massive sulphide deposits of the Bathurst Mining Camp, New Brunswick, and northern Maine_ (Economic Geology Monograph No. 11, pp. 1–18). Society of Economic Geologists. <https://doi.org/10.5382/Mono.11.01>
-
-=======
->>>>>>> 409badf4b7e147508c94e920d166099ff9266e05
 McCutcheon, S. R., & Walker, J. A. (2020). Great mining camps of Canada 8. The Bathurst Mining Camp, New Brunswick, Part 2: Mining history and contributions to society. _Geoscience Canada, 47_(3), 143–166. <https://doi.org/10.12789/geocanj.2020.47.163>.
 
 Miller, H. G., & Singh, V. (1994). Potential field tilt—A new concept for location of potential field sources. _Journal of Applied Geophysics, 32_(2–3), 213–217. [https://doi.org/10.1016/0926-9851(94)90022-1](https://doi.org/10.1016/0926-9851%2894%2990022-1)
