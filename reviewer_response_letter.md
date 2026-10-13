@@ -252,7 +252,7 @@ Equations verified in the revised submission:
 
 **Integration location:** §1 (Introduction, paragraph on ML-based MPM):
 
-> *"The performance of ML-based MPM frameworks is sensitive to hyperparameter configuration across both supervised (Daviran et al., 2021, 2025) and unsupervised (Daviran & Maghsoudi, 2026) algorithms, motivating the adoption of automated optimization strategies rather than relying on default settings or manual tuning."*
+> *"The importance of automated hyperparameter optimization in mineral prospectivity modeling has been demonstrated using metaheuristic approaches including genetic algorithms and particle swarm optimization (Daviran et al., 2021, 2025; Daviran & Maghsoudi, 2026). In this study, we adopt Optuna's Tree-structured Parzen Estimator (Akiba et al., 2019) as a more sample-efficient Bayesian alternative, using the mean spatial block CV ROC-AUC as the objective across 50 trials per algorithm."*
 
 ---
 
