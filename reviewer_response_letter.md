@@ -155,25 +155,19 @@ We thank Reviewer 2 for the detailed and constructive reading of the manuscript.
 
 **Clarification:** The MEAS was computed as a linear composite of normalized VMS pathfinder element concentrations, weighted according to their established diagnostic association with massive sulphide mineralization as documented in the BMC metallogeny literature. Specifically, the pathfinder elements and assigned weights were:
 
-| Element | Weight ($w_i$) | Rationale |
-|---|---|---|
-| Zn | 1.5 | Primary metal; highest tonnage in BMC VMS |
-| Pb | 1.5 | Primary metal; polymetallic halo indicator |
-| Cu | 1.2 | Proximal stockwork indicator |
-| Mo | 1.0 | High-temperature hydrothermal fluid indicator |
-| Ag | 1.0 | Distal halo indicator |
-| Bi | 0.8 | High-temperature sulphosalt; sparse |
-| Cd | 0.8 | Sphalerite-associated |
-| Sb | 0.5 | Distal halo indicator |
-| As | 0.5 | Distal halo indicator |
+| Tier | Elements | Weight ($w_i$) | Rationale |
+|---|---|---|---|
+| Core ore metals | Cu, Zn, Pb | 3 | Primary ore metals; highest tonnage and most diagnostic of BMC VMS |
+| Proximal chalcophile pathfinders | As, Sb, Bi, Ag, In, Cd, Sn | 2 | Proximal stockwork and sulphosalt/sphalerite associates; high-temperature hydrothermal indicators |
+| Alteration / exhalite indicators | Co, Ni, Ba, Fe, Mn, Mo, Tl | 1 | Distal alteration footprint and exhalite signature |
 
-Weights were assigned based on the paragenetic sequence and metallogeny of BMC deposits described in Franklin et al. (2005), McCutcheon et al. (2003), and Goodfellow (2007), not derived empirically from feature importance scores (which would introduce circularity). Each element concentration was normalized to zero mean and unit variance (z-score) before weighting.
+Weights were assigned based on the paragenetic sequence and metallogeny of BMC deposits described in Galley et al. (2007) and Franklin et al. (2005), not derived empirically from feature importance scores (which would introduce circularity). All 17 elements in the dataset were included. Each element concentration was normalized to zero mean and unit variance (z-score) before weighting, and the final score was normalized by the total weight of contributing elements to remain comparable across variable data availability.
 
 Note that MEAS did not emerge among the top-10 SHAP predictors in either model, confirming that the raw IDW surfaces and CLR-FA factors captured the geochemical signal more effectively at the scale of the 100 m prediction grid. MEAS serves primarily as a geological screening variable for qualitative target prioritization.
 
 **Manuscript change added to §3.4.2:**
 
-> *"Weights were assigned based on established paragenetic associations with BMC VMS mineralization (Goodfellow, 2007; Franklin et al., 2005; McCutcheon et al., 2003): Zn and Pb ($w = 1.5$), Cu ($w = 1.2$), Mo and Ag ($w = 1.0$), Bi and Cd ($w = 0.8$), and Sb and As ($w = 0.5$). Weights reflect diagnostic association strength in the BMC metallogeny literature rather than data-derived feature importance, to avoid circularity with the downstream classifier. All element concentrations were normalized to zero mean and unit variance prior to weighting."*
+> *"Weights were assigned to all 17 pathfinder elements according to their established diagnostic association with VMS mineralization in the BMC metallogeny literature (Galley et al., 2007; Franklin et al., 2005), following a three-tier scheme: core ore metals Cu, Zn, and Pb ($w = 3$); proximal chalcophile pathfinders As, Sb, Bi, Ag, In, Cd, and Sn ($w = 2$); and alteration and exhalite indicators Co, Ni, Ba, Fe, Mn, Mo, and Tl ($w = 1$). Weights reflect established diagnostic association strengths in the BMC metallogeny literature rather than data-derived feature importance, to avoid circularity with the downstream classifier. All element concentrations were normalized to zero mean and unit variance prior to weighting, and the final score was normalized by total contributing weight to ensure comparability regardless of data availability."*
 
 ---
 
