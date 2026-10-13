@@ -241,6 +241,8 @@ RF was implemented using the Gini impurity criterion (Breiman, 2001) to recursiv
 | | `colsample_bytree` | Uniform [0.5, 1.0] | **0.9113** | Column subsampling reduces reliance on dominant features |
 | | `reg_alpha` (L₁) | Log-uniform [10⁻⁵, 1.0] | **0.0018** | Lasso penalty induces sparsity in feature weights |
 | | `reg_lambda` (L₂) | Log-uniform [10⁻⁵, 10.0] | **1.06 × 10⁻⁶** | Ridge penalty shrinks leaf weights against extreme predictions |
+| | `min_child_weight` | Int [1, 20] | **1** | Minimum sum of instance weight per leaf; prevents splits on rare sample groups |
+| | `gamma` | Uniform [0.0, 5.0] | **0.0024** | Minimum loss reduction required to make a further partition; controls tree pruning |
 
 ## **3.8 Performance Metrics Evaluation**
 

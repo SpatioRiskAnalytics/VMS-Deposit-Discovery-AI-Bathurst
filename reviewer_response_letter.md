@@ -209,8 +209,8 @@ Equations verified in the revised submission:
 | `colsample_bytree` (XGB) | Uniform[0.5, 1.0] | — | **0.9113** |
 | `reg_alpha` (XGB) | Log-uniform[1e-5, 1.0] | — | **0.0018** |
 | `reg_lambda` (XGB) | Log-uniform[1e-5, 10.0] | — | **$1.06 \times 10^{-6}$** |
-| `min_child_weight` (XGB) | Int[1, 10] | — | **1** |
-| `gamma` (XGB) | Log-uniform[1e-5, 1.0] | — | **0.0024** |
+| `min_child_weight` (XGB) | Int[1, 20] | — | **1** |
+| `gamma` (XGB) | Uniform[0.0, 5.0] | — | **0.0024** |
 
 **Overfitting mitigation:** The search space was explicitly bounded to prevent overfitting in the small-sample context (n=45 positives, ≈30–35 per training fold after spatial block holdout): (1) `min_samples_leaf` was searched up to 20, preventing leaf nodes from representing single training samples; (2) RF `max_features` was restricted to fractions ≤ 0.5, enforcing feature subsampling at each split; (3) XGBoost regularization terms (`reg_alpha`, `reg_lambda`) were included to penalize model complexity; and (4) the objective function (spatial block CV ROC-AUC) penalizes overfitting by evaluating on geographically disjoint test blocks. SMOTE was applied inside each training fold only, preventing synthetic samples from appearing in validation sets.
 

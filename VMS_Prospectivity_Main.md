@@ -291,6 +291,8 @@ RF was implemented using the Gini impurity criterion (Breiman, 2001) to recursiv
 | | `colsample_bytree` | Uniform [0.5, 1.0] | **0.9113** | Column subsampling reduces reliance on dominant features |
 | | `reg_alpha` ($L_1$) | Log-uniform [$10^{-5}$, 1.0] | **0.0018** | Lasso penalty induces sparsity in feature weights |
 | | `reg_lambda` ($L_2$) | Log-uniform [$10^{-5}$, 10.0] | **$1.06 \times 10^{-6}$** | Ridge penalty shrinks leaf weights against extreme predictions |
+| | `min_child_weight` | Int [1, 20] | **1** | Minimum sum of instance weight per leaf; prevents splits on rare sample groups |
+| | `gamma` | Uniform [0.0, 5.0] | **0.0024** | Minimum loss reduction required to make a further partition; controls tree pruning |
 =======
 Random Forest (RF; Breiman, 2001; Rodriguez-Galiano et al., 2014; Sun, et al. 2019; Mami Khalifani, 2025) and Extreme Gradient Boosting (XGBoost; Chen & Guestrin, 2016; Parsa, 2021; Ghane et al., 2026) classifiers were trained and optimized using randomized hyperparameter search within the spatial cross-validation framework. RF was implemented using the Gini impurity criterion (Breiman, 2001) to recursively partition the predictor space into homogeneous classes, whereas XGBoost was trained using a binary logistic objective function and gradient boosting optimization (Chen & Guestrin, 2016). Hyperparameter optimization was performed to identify model configurations that maximized predictive performance while reducing the risk of overfitting. Class weights were balanced in both classifiers to further mitigate residual effects of class imbalance.
 >>>>>>> 409badf4b7e147508c94e920d166099ff9266e05
